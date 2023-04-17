@@ -6,3 +6,6 @@ class Newmo(models.Model):
 class Azul(models.Model):
     'Generated Model'
     value = models.BigIntegerField()
+class Alligator(models.Model):
+    'Generated Model'
+    value = models.BigIntegerField()
