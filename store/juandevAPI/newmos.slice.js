@@ -1,95 +1,93 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { apiService } from "./api"
-export const modules_articles_article_list = createAsyncThunk(
-  "articles/modules_articles_article_list",
+export const api_v1_newmo_list = createAsyncThunk(
+  "newmos/api_v1_newmo_list",
   async payload => {
-    const response = await apiService.modules_articles_article_list(payload)
+    const response = await apiService.api_v1_newmo_list(payload)
     return response.data
   }
 )
-export const modules_articles_article_create = createAsyncThunk(
-  "articles/modules_articles_article_create",
+export const api_v1_newmo_create = createAsyncThunk(
+  "newmos/api_v1_newmo_create",
   async payload => {
-    const response = await apiService.modules_articles_article_create(payload)
+    const response = await apiService.api_v1_newmo_create(payload)
     return response.data
   }
 )
-export const modules_articles_article_retrieve = createAsyncThunk(
-  "articles/modules_articles_article_retrieve",
+export const api_v1_newmo_retrieve = createAsyncThunk(
+  "newmos/api_v1_newmo_retrieve",
   async payload => {
-    const response = await apiService.modules_articles_article_retrieve(payload)
+    const response = await apiService.api_v1_newmo_retrieve(payload)
     return response.data
   }
 )
-export const modules_articles_article_update = createAsyncThunk(
-  "articles/modules_articles_article_update",
+export const api_v1_newmo_update = createAsyncThunk(
+  "newmos/api_v1_newmo_update",
   async payload => {
-    const response = await apiService.modules_articles_article_update(payload)
+    const response = await apiService.api_v1_newmo_update(payload)
     return response.data
   }
 )
-export const modules_articles_article_partial_update = createAsyncThunk(
-  "articles/modules_articles_article_partial_update",
+export const api_v1_newmo_partial_update = createAsyncThunk(
+  "newmos/api_v1_newmo_partial_update",
   async payload => {
-    const response = await apiService.modules_articles_article_partial_update(
-      payload
-    )
+    const response = await apiService.api_v1_newmo_partial_update(payload)
     return response.data
   }
 )
-export const modules_articles_article_destroy = createAsyncThunk(
-  "articles/modules_articles_article_destroy",
+export const api_v1_newmo_destroy = createAsyncThunk(
+  "newmos/api_v1_newmo_destroy",
   async payload => {
-    const response = await apiService.modules_articles_article_destroy(payload)
+    const response = await apiService.api_v1_newmo_destroy(payload)
     return response.data
   }
 )
 const initialState = { entities: [], api: { loading: "idle", error: null } }
-const articlesSlice = createSlice({
-  name: "articles",
+const newmosSlice = createSlice({
+  name: "newmos",
   initialState,
   reducers: {},
   extraReducers: {
-    [modules_articles_article_list.pending]: (state, action) => {
+    [api_v1_newmo_list.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_articles_article_list.fulfilled]: (state, action) => {
+    [api_v1_newmo_list.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities = action.payload
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_list.rejected]: (state, action) => {
+    [api_v1_newmo_list.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_create.pending]: (state, action) => {
+    [api_v1_newmo_create.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_articles_article_create.fulfilled]: (state, action) => {
+    [api_v1_newmo_create.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities.push(action.payload)
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_create.rejected]: (state, action) => {
+    [api_v1_newmo_create.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_retrieve.pending]: (state, action) => {
+    [api_v1_newmo_retrieve.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_articles_article_retrieve.fulfilled]: (state, action) => {
+    [api_v1_newmo_retrieve.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities = [
           ...state.entities.filter(record => record.id !== action.payload.id),
@@ -98,18 +96,18 @@ const articlesSlice = createSlice({
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_retrieve.rejected]: (state, action) => {
+    [api_v1_newmo_retrieve.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_update.pending]: (state, action) => {
+    [api_v1_newmo_update.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_articles_article_update.fulfilled]: (state, action) => {
+    [api_v1_newmo_update.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities = state.entities.map(record =>
           record.id === action.payload.id ? action.payload : record
@@ -117,18 +115,18 @@ const articlesSlice = createSlice({
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_update.rejected]: (state, action) => {
+    [api_v1_newmo_update.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_partial_update.pending]: (state, action) => {
+    [api_v1_newmo_partial_update.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_articles_article_partial_update.fulfilled]: (state, action) => {
+    [api_v1_newmo_partial_update.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities = state.entities.map(record =>
           record.id === action.payload.id ? action.payload : record
@@ -136,18 +134,18 @@ const articlesSlice = createSlice({
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_partial_update.rejected]: (state, action) => {
+    [api_v1_newmo_partial_update.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_destroy.pending]: (state, action) => {
+    [api_v1_newmo_destroy.pending]: (state, action) => {
       if (state.api.loading === "idle") {
         state.api.loading = "pending"
       }
     },
-    [modules_articles_article_destroy.fulfilled]: (state, action) => {
+    [api_v1_newmo_destroy.fulfilled]: (state, action) => {
       if (state.api.loading === "pending") {
         state.entities = state.entities.filter(
           record => record.id !== action.meta.arg?.id
@@ -155,7 +153,7 @@ const articlesSlice = createSlice({
         state.api.loading = "idle"
       }
     },
-    [modules_articles_article_destroy.rejected]: (state, action) => {
+    [api_v1_newmo_destroy.rejected]: (state, action) => {
       if (state.api.loading === "pending") {
         state.api.error = action.error
         state.api.loading = "idle"
@@ -164,11 +162,11 @@ const articlesSlice = createSlice({
   }
 })
 export default {
-  modules_articles_article_list,
-  modules_articles_article_create,
-  modules_articles_article_retrieve,
-  modules_articles_article_update,
-  modules_articles_article_partial_update,
-  modules_articles_article_destroy,
-  slice: articlesSlice
+  api_v1_newmo_list,
+  api_v1_newmo_create,
+  api_v1_newmo_retrieve,
+  api_v1_newmo_update,
+  api_v1_newmo_partial_update,
+  api_v1_newmo_destroy,
+  slice: newmosSlice
 }
