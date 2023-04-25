@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Alligator,Azul,Newmo
-from .serializers import AlligatorSerializer,AzulSerializer,NewmoSerializer
+from home.models import Alligator,Azul,Newmo,Wolf
+from .serializers import AlligatorSerializer,AzulSerializer,NewmoSerializer,WolfSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -47,3 +47,8 @@ class AlligatorViewSet(viewsets.ModelViewSet):
     serializer_class = AlligatorSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Alligator.objects.all()
+
+class WolfViewSet(viewsets.ModelViewSet):
+    serializer_class = WolfSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Wolf.objects.all()
