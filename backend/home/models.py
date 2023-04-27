@@ -14,3 +14,7 @@ class Wolf(models.Model):
     'Generated Model'
     name = models.CharField(max_length=256,)
     enemy = models.ForeignKey("home.Alligator",on_delete=models.CASCADE,related_name="wolf_enemy",)
+class Cat(models.Model):
+    'Generated Model'
+    name = models.CharField(max_length=256,)
+    age = models.IntegerField()
