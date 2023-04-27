@@ -9,6 +9,12 @@ function api_v1_azul_list(payload) {
 function api_v1_azul_create(payload) {
   return juandevAPI.post(`/api/v1/azul/`, payload.data)
 }
+function api_v1_wolf_list(payload) {
+  return juandevAPI.get(`/api/v1/wolf/`)
+}
+function api_v1_wolf_create(payload) {
+  return juandevAPI.post(`/api/v1/wolf/`, payload.data)
+}
 function api_v1_login_create(payload) {
   return juandevAPI.post(`/api/v1/login/`, payload.data)
 }
@@ -36,6 +42,12 @@ function api_docs_schema_retrieve(payload) {
 function rest_auth_login_create(payload) {
   return juandevAPI.post(`/rest-auth/login/`, payload.data)
 }
+function api_v1_alligator_list(payload) {
+  return juandevAPI.get(`/api/v1/alligator/`)
+}
+function api_v1_alligator_create(payload) {
+  return juandevAPI.post(`/api/v1/alligator/`, payload.data)
+}
 function api_v1_azul_retrieve(payload) {
   return juandevAPI.get(`/api/v1/azul/${payload.id}/`)
 }
@@ -47,6 +59,18 @@ function api_v1_azul_partial_update(payload) {
 }
 function api_v1_azul_destroy(payload) {
   return juandevAPI.delete(`/api/v1/azul/${payload.id}/`)
+}
+function api_v1_wolf_retrieve(payload) {
+  return juandevAPI.get(`/api/v1/wolf/${payload.id}/`)
+}
+function api_v1_wolf_update(payload) {
+  return juandevAPI.put(`/api/v1/wolf/${payload.id}/`, payload.data)
+}
+function api_v1_wolf_partial_update(payload) {
+  return juandevAPI.patch(`/api/v1/wolf/${payload.id}/`, payload.data)
+}
+function api_v1_wolf_destroy(payload) {
+  return juandevAPI.delete(`/api/v1/wolf/${payload.id}/`)
 }
 function rest_auth_logout_retrieve(payload) {
   return juandevAPI.get(`/rest-auth/logout/`)
@@ -65,6 +89,18 @@ function api_v1_newmo_partial_update(payload) {
 }
 function api_v1_newmo_destroy(payload) {
   return juandevAPI.delete(`/api/v1/newmo/${payload.id}/`)
+}
+function api_v1_alligator_retrieve(payload) {
+  return juandevAPI.get(`/api/v1/alligator/${payload.id}/`)
+}
+function api_v1_alligator_update(payload) {
+  return juandevAPI.put(`/api/v1/alligator/${payload.id}/`, payload.data)
+}
+function api_v1_alligator_partial_update(payload) {
+  return juandevAPI.patch(`/api/v1/alligator/${payload.id}/`, payload.data)
+}
+function api_v1_alligator_destroy(payload) {
+  return juandevAPI.delete(`/api/v1/alligator/${payload.id}/`)
 }
 function rest_auth_registration_create(payload) {
   return juandevAPI.post(`/rest-auth/registration/`, payload.data)
@@ -160,6 +196,8 @@ function modules_two_factor_authentication_twofactorauth_send_otp_create(
 export const apiService = {
   api_v1_azul_list,
   api_v1_azul_create,
+  api_v1_wolf_list,
+  api_v1_wolf_create,
   api_v1_login_create,
   api_v1_newmo_list,
   api_v1_newmo_create,
@@ -169,16 +207,26 @@ export const apiService = {
   rest_auth_user_partial_update,
   api_docs_schema_retrieve,
   rest_auth_login_create,
+  api_v1_alligator_list,
+  api_v1_alligator_create,
   api_v1_azul_retrieve,
   api_v1_azul_update,
   api_v1_azul_partial_update,
   api_v1_azul_destroy,
+  api_v1_wolf_retrieve,
+  api_v1_wolf_update,
+  api_v1_wolf_partial_update,
+  api_v1_wolf_destroy,
   rest_auth_logout_retrieve,
   rest_auth_logout_create,
   api_v1_newmo_retrieve,
   api_v1_newmo_update,
   api_v1_newmo_partial_update,
   api_v1_newmo_destroy,
+  api_v1_alligator_retrieve,
+  api_v1_alligator_update,
+  api_v1_alligator_partial_update,
+  api_v1_alligator_destroy,
   rest_auth_registration_create,
   modules_articles_article_list,
   modules_articles_article_create,
